@@ -28,10 +28,10 @@ export function Countdown() {
       interval = setInterval(() => {
         const diffSeconds = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
-        if (diffSeconds === totalSeconds) {
+        if (diffSeconds >= totalSeconds) {
           markActiveCycleAsFinished()
           updateSecondsPassed(totalSeconds)
           clearInterval(interval)
